@@ -56,8 +56,8 @@ async def __(c, m):
             payload = {"content": open(media_info, "r").read()}
             async with nekoSession.post(neko_endpoint, data=payload) as resp:
                 resp = await resp.json()
-                neko_link = f"https://t.me/liquidxprojects"
+                neko_link = f"https://nekobin.com/{resp['result']['key']}"
         logger.debug(neko_link)
         await m.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("Follow Our Channel", url=neko_link)]])
+            InlineKeyboardMarkup([[InlineKeyboardButton("Web URL", url=neko_link)]])
         )
